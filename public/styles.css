@@ -4,10 +4,6 @@
     margin: 0;
 }
 
-/*
-    I should place the background on the body and the diagonal on the container, so that I can use flexbox.
-*/
-
 body{
     font-family: Lato;
     color: black;

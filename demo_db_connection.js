@@ -10,24 +10,13 @@ var app = express();
 var server = http.createServer(app);
 
 
-
+// limit max num of requests per unit of time
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 100 // limit each IP to 100 requests per windowMs
 });
 
-
-/*
-
-  Creo que lo que tengo que hacer es encontrar otra manera de consumir la info de email.
-  Posiblemente de alguna manera ese texto tiene que ir a parar a algun lado.
-  https://medium.com/swlh/read-html-form-data-using-get-and-post-method-in-node-js-8d2c7880adbf
-  Ahi tiene que estar.
-
-*/
-
-
-
+// open connection to DB
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -35,6 +24,7 @@ var con = mysql.createConnection({
   database: "zentux"
 });
 
+// set bodyParser, path for express static files, and libs.
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname,'/public')));
 app.use(helmet());
@@ -44,6 +34,8 @@ app.get('/', function(req,res){
   res.sendFile(path.join(__dirname,'/public/index.html'));
 });
 
+// send req to DB and update. This obviously needs further auth methods other than email, but
+// with the limited DB model I'm working on, this works well enough to serve as an example.
 app.post('/send', function(req,res){
   var sql = 'UPDATE user SET termsAndConditionApproved = 1 WHERE email = "' + req.body.email + '"';
     con.query(sql, function (err, result) {
@@ -60,6 +52,7 @@ app.post('/send', function(req,res){
     });
 });
 
+// close connection in case it's needed
 app.get('/close', function(req,res){
   db.close((err) => {
     if (err) {
@@ -71,61 +64,7 @@ app.get('/close', function(req,res){
   });
 });
 
-
+// set listener on port:3000 to get reqs. nodemon restarts sv on filechange for reusability.
 server.listen(3000,function(){ 
   console.log("Server listening on port: 3000");
 })
-
-
-
-
-
-
-
-
-
-
-/*
-con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-    var sql = 'UPDATE user SET termsAndConditionApproved = 1 WHERE id = 2';
-    con.query(sql, function (err, result) {
-      if (err) throw err;
-      let dbReturn = Object.values(JSON.parse(JSON.stringify(result)));
-      truthChecker(dbReturn[0].termsAndConditionApproved.data[0]);
-      //console.log(dbReturn[0].termsAndConditionApproved.data[0])
-    });
-  });
-
-function truthChecker(checked){
-    if(checked){
-        console.log("dbReturn is true")
-    }else{
-        console.log("dbReturn is false")
-    }
-}
-
-
-
-app.post('/send', function(req,res){
-  con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-    var sql = 'UPDATE user SET termsAndConditionApproved = 1 WHERE email = "' + req.body.email + '"';
-    con.query(sql, function (err, result) {
-      if (err) throw err;
-      if(result.affectedRows == 0){
-        res.statusCode = 302;
-        res.setHeader('Location', '/failed.html');
-        res.end();
-      }else{
-        res.statusCode = 200;
-        res.setHeader('Location', '/success.html');
-        res.end();
-      };
-    });
-  });
-});
-
-*/

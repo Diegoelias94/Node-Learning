@@ -17,30 +17,30 @@
                 <div class="form-fields">
                     <div class="form-elements">
                         <label for="fname" class="input-labels">First name:</label><br>
-                        <input type="text" id="fname" name="fname" placeholder="John" pattern="[^\W\d_]+" oninvalid="setCustomValidity('Debe ingresar el nombre')"
+                        <input type="text" id="fname" name="fname" placeholder="John" pattern="[^\W\d_]+" oninvalid="setCustomValidity('You must use a valid name')"
                         oninput="setCustomValidity('')" required><br>
                     </div>
                     <div class="form-elements">
                         <label for="lname" class="input-labels">Last name:</label><br>
-                        <input type="text" id="lname" name="lname" placeholder="Doe" pattern="[^\W\d_]+" oninvalid="setCustomValidity('Debe ingresar el apellido')"
+                        <input type="text" id="lname" name="lname" placeholder="Doe" pattern="[^\W\d_]+" oninvalid="setCustomValidity('You must use a valid last name')"
 	oninput="setCustomValidity('')" required><br>
                     </div>
                     <div class="form-elements">
                         <label for="lname" class="input-labels">Email:</label><br>
-                        <input type="email" id="email" name="email" placeholder="JohnDoe@gmail.com" oninvalid="setCustomValidity('Debe ingresar la dirección de correo')"
+                        <input type="email" id="email" name="email" placeholder="JohnDoe@gmail.com" oninvalid="setCustomValidity('You must use a valid email address')"
 	oninput="setCustomValidity('')" required><br><br>
                     </div>
                 </div>
                 <div class="checkbox-containers">
-                    <input type="checkbox" id="terms-and-conditions" class="checkbox" oninvalid="setCustomValidity('Debe aceptar los terminos y condiciones')"
+                    <input type="checkbox" id="terms-and-conditions" class="checkbox" oninvalid="setCustomValidity('You must accept the T&Cs to continue')"
 	oninput="setCustomValidity('')" required>
-                    <label for="terms-and-conditions">He leído y acepto los <a href="/T&C.txt" target="_blank">Terminos y Condiciones</a></label>
+                    <label for="terms-and-conditions">I've read and accept the <a href="/T&C.txt" target="_blank">Terms and Conditions</a></label>
                 </div>
                     <br>
                 <div class="checkbox-containers">
-                    <input type="checkbox" id="privacy" class="checkbox" oninvalid="setCustomValidity('Debe aceptar la politica de privacidad')"
+                    <input type="checkbox" id="privacy" class="checkbox" oninvalid="setCustomValidity('You must accept the Privacy Policy to continue')"
 	oninput="setCustomValidity('')" required>
-                    <label for="privacy">He leído y estoy de acuerdo con la <a href="/Privacy.txt" target="_blank">Politica de Privacidad</a></label>
+                    <label for="privacy">I've read and accept the <a href="/Privacy.txt" target="_blank">Privacy Policy</a></label>
                 </div>
                     <br>
                 <input type="submit" id="send" class="button" value="Aceptar">
