@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script type="application/javascript" src="/demo_db_connection.js"></script>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="diag-top"></div>
+        <div class="terms-and-conditions">
+            <form action="/send" method="POST" class="form">
+                <div class="form-fields">
+                    <div class="form-elements">
+                        <label for="fname" class="input-labels">First name:</label><br>
+                        <input type="text" id="fname" name="fname" placeholder="John" pattern="[^\W\d_]+" oninvalid="setCustomValidity('Debe ingresar el nombre')"
+                        oninput="setCustomValidity('')" required><br>
+                    </div>
+                    <div class="form-elements">
+                        <label for="lname" class="input-labels">Last name:</label><br>
+                        <input type="text" id="lname" name="lname" placeholder="Doe" pattern="[^\W\d_]+" oninvalid="setCustomValidity('Debe ingresar el apellido')"
+	oninput="setCustomValidity('')" required><br>
+                    </div>
+                    <div class="form-elements">
+                        <label for="lname" class="input-labels">Email:</label><br>
+                        <input type="email" id="email" name="email" placeholder="JohnDoe@gmail.com" oninvalid="setCustomValidity('Debe ingresar la dirección de correo')"
+	oninput="setCustomValidity('')" required><br><br>
+                    </div>
+                </div>
+                <div class="checkbox-containers">
+                    <input type="checkbox" id="terms-and-conditions" class="checkbox" oninvalid="setCustomValidity('Debe aceptar los terminos y condiciones')"
+	oninput="setCustomValidity('')" required>
+                    <label for="terms-and-conditions">He leído y acepto los <a href="/T&C.txt" target="_blank">Terminos y Condiciones</a></label>
+                </div>
+                    <br>
+                <div class="checkbox-containers">
+                    <input type="checkbox" id="privacy" class="checkbox" oninvalid="setCustomValidity('Debe aceptar la politica de privacidad')"
+	oninput="setCustomValidity('')" required>
+                    <label for="privacy">He leído y estoy de acuerdo con la <a href="/Privacy.txt" target="_blank">Politica de Privacidad</a></label>
+                </div>
+                    <br>
+                <input type="submit" id="send" class="button" value="Aceptar">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

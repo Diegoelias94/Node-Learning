@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+*{
+    margin: 0;
+}
+
+/*
+    I should place the background on the body and the diagonal on the container, so that I can use flexbox.
+*/
+
+body{
+    font-family: Lato;
+    color: black;
+}
+a{
+    color: #db6f16;
+}
+.container{
+    height: 100vh;
+    background-color:#F78B31;
+}
+.diag-top{
+    background-color:#F68121;
+    height: 100%;
+    clip-path: polygon(100% 0%,0% 0%,100% 100%);
+
+}
+.terms-and-conditions{
+    background-color: #FFB673;
+    border-radius: 20px;
+    width: 21vw;
+    height: auto;
+    padding: 30px;
+    position: absolute;
+    top: 35%;
+    left: 38vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    
+}
+.checkbox{
+    accent-color: #F68121;
+    color: white;
+    cursor: pointer;
+}
+.checkbox-containers{
+    margin-left: 5px;
+}
+.button{
+    font-size: 1.1rem;
+    width: 100%;
+    height: 40px;
+    color: white;
+    background-color: #F68121;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.form-fields{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 25vw;
+    margin-left: 5px;
+}
+.form-elements{
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.failed{
+    background-color: #FFB673;
+    border-radius: 20px;
+    width: 21vw;
+    height: auto;
+    padding: 30px;
+    position: absolute;
+    top: 45%;
+    left: 37.5vw;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+h1{
+    margin-bottom: 15px;
+}
